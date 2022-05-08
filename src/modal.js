@@ -39,8 +39,11 @@ for (let i = 0; i < gameLinks.length; i++) {
 
 function changeModal(gameId) {
     aboutGame.innerHTML = `
-        <div class="game-banner">
+        <div class="modal-menu">
             <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="game-banner">
             <img  src="${gamesList[gameId].gameBanner}" alt="">
         </div>
 
