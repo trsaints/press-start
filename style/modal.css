@@ -1,0 +1,33 @@
+/* ===== GAME DESCRIPTION ============================== */
+
+#game-description {
+    border: .1rem solid var(--royal-bd);
+    border-radius: 2.1rem;
+    background-color: white;
+  
+    margin-inline: auto;
+    width: 80vw;
+    height: 80vh;
+    position: relative;
+    z-index: 20;
+    top: 0;
+  }
+  
+  #about-game {
+    display: grid;
+    grid-template-areas: "banner title" "banner description";
+  }
+  
+  #about-game .game-banner {
+    grid-area: banner;
+  }
+  
+  #about-game .game-titles {
+    grid-area: title;
+  }
+  
+  #about-game .game-detail {
+    grid-area: description;
+  }
+  
+  
