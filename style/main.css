@@ -63,7 +63,8 @@ a {
 
 #page-header,
 #products,
-#page-footer {
+#page-footer,
+#game-description {
   padding-block: 10rem;
 }
 
