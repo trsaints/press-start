@@ -2,6 +2,41 @@ const gameLinks = document.querySelectorAll(".link-button");
 const gameDescription = document.querySelector("#game-description");
 const aboutGame = gameDescription.querySelector("#about-game");
 
+function changeModal(gameId) {
+    aboutGame.innerHTML = `
+        <div class="modal-menu">
+            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        
+        <div class="game-banner">
+            <img  src="${gamesList[gameId].gameBanner}" alt="">
+        </div>
+
+        <div class="game-titles">
+            <h2 id="game-title">${gamesList[gameId].gameTitle}</h2>
+            <h3 id="game-date">${gamesList[gameId].gameYear}</h3>
+            <h3 id="game-dev">${gamesList[gameId].gameProducer}</h3>
+            <h3>Gêneros</h3>
+            <p>${gamesList[gameId].gameGenders}</p>
+        
+            <h3>Plataformas</h3>
+            <p>
+                ${gamesList[gameId].gamePlatforms}
+            </p>  
+
+            <div class="flex-container">
+                <a href="#game-description" class="link-button"><i class="fa-solid fa-cart-plus"></i> adicionar ao carrinho</a>
+            </div>
+            
+        </div>
+
+        <div class="game-detail">
+            <h4>Descrição</h4>
+            <p class="game-description">${gamesList[gameId].gameDescriptions}</p>
+        </div>
+    `;
+}
+
 let currentId;
 let gamesList = [
     {
@@ -36,38 +71,13 @@ for (let i = 0; i < gameLinks.length; i++) {
     gameLinks[i].dataset.id = i;
 }
 
-
-function changeModal(gameId) {
-    aboutGame.innerHTML = `
-        <div class="modal-menu">
-            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        
-        <div class="game-banner">
-            <img  src="${gamesList[gameId].gameBanner}" alt="">
-        </div>
-
-        <div class="game-titles">
-            <h2 id="game-title">${gamesList[gameId].gameTitle}</h2>
-            <h3 id="game-date">${gamesList[gameId].gameYear}</h3>
-            <h3 id="game-dev">${gamesList[gameId].gameProducer}</h3>
-            <h3>Gêneros</h3>
-            <p>${gamesList[gameId].gameGenders}</p>
-        
-            <h3>Plataformas</h3>
-            <p>${gamesList[gameId].gamePlatforms}</p>        
-        </div>
-
-        <div class="game-detail">
-            <p class="game-description">${gamesList[gameId].gameDescriptions}</p>
-        </div>
-    `;
-}
-
 gameLinks.forEach((gameLink) => {
     gameLink.addEventListener("click", (currentLink) => {
         currentId = currentLink.target.dataset.id;
         changeModal(currentId);
+        
+        if (!gameDescription.classList.contains("shown")) {
+            gameDescription.classList.add("shown");
+        }
     });
-})
-
+});
