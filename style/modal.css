@@ -1,36 +1,96 @@
 /* ===== GAME DESCRIPTION ============================== */
 
 #game-description {
-  border: 0.1rem solid var(--royal-bd);
-  border-radius: 2.1rem;
-  background-color: white;
+  visibility: hidden;
+}
 
+#game-description.shown {
   margin-inline: auto;
-  width: 80vw;
-  height: 80vh;
-  position: relative;
-  z-index: 20;
-  top: 0;
+  visibility: visible;
+}
+
+#game-description .wrapper {
+  padding-top: 10rem;
+}
+
+#game-description #game-title {
+  font-size: 3.5rem;
 }
 
 #about-game {
+  border-radius: 2.1rem;
+  box-shadow: 0 0 7px gray;
+
   display: grid;
-  grid-template-areas: "menu menu" "banner title" "banner description";
+  grid-template-columns: repeat(1fr, 4);
+  grid-template-areas: "menu menu" "banner banner" "title title" "description description";
   gap: 1.4rem;
 }
 
 #about-game .modal-menu {
-    grid-area: menu;
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  background-color: var(--royal-bd);
+  border-top-left-radius: 2.1rem;
+  border-top-right-radius: 2.1rem;
 }
 
 #about-game .game-banner {
   grid-area: banner;
+  padding-left: 2rem;
 }
 
 #about-game .game-titles {
   grid-area: title;
+  padding: 0 2rem;
+}
+
+#about-game .flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 2.1rem;
 }
 
 #about-game .game-detail {
   grid-area: description;
+  word-break: break-all;
+  padding: 1rem 2rem;
+}
+
+#about-game .close-btn {
+  border: none;
+  background: inherit;
+  font-size: 3rem;
+  color: var(--cerise);
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+#about-game .link-button {
+  border-radius: 1rem;
+  padding: 1.5rem 3rem;
+}
+
+@media (min-width: 40em) {
+  #game-description.shown {
+    max-width: 80vw;
+  }
+
+  #about-game {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: "menu menu" "banner title" "description description";
+    gap: 1.4rem;
+  }
+
+  #about-game .flex-container {
+    display: flex;
+    justify-content: flex-start;
+    padding-block: 2.1rem;
+  }
 }
