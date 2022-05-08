@@ -40,7 +40,7 @@ for (let i = 0; i < gameLinks.length; i++) {
 function changeModal(gameId) {
     aboutGame.innerHTML = `
 <img src="${gamesList[gameId].gameBanner}" alt="" id="game-banner">
-<h1 id="game-title">${gamesList[gameId].gameTitle}</h1>
+<h2 id="game-title">${gamesList[gameId].gameTitle}</h2>
 <h3 id="game-date">${gamesList[gameId].gameYear}</h3>
 <h4 id="game-dev">${gamesList[gameId].gameProducer}</h4>
 `;
