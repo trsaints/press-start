@@ -1,7 +1,6 @@
 const gameLinks = document.querySelectorAll(".link-button");
 const gameDescription = document.querySelector("#game-description");
 const aboutGame = gameDescription.querySelector("#about-game");
-const gameDetails = gameDescription.querySelector("#game-details");
 
 let currentId;
 let gamesList = [
@@ -37,26 +36,29 @@ for (let i = 0; i < gameLinks.length; i++) {
     gameLinks[i].dataset.id = i;
 }
 
+
 function changeModal(gameId) {
     aboutGame.innerHTML = `
-<img src="${gamesList[gameId].gameBanner}" alt="" id="game-banner">
-<h2 id="game-title">${gamesList[gameId].gameTitle}</h2>
-<h3 id="game-date">${gamesList[gameId].gameYear}</h3>
-<h4 id="game-dev">${gamesList[gameId].gameProducer}</h4>
-`;
+        <div class="game-banner">
+            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <img  src="${gamesList[gameId].gameBanner}" alt="">
+        </div>
 
-    gameDetails.innerHTML = `
-<div class="game-detail">
-<h3>Gêneros</h3>
-<p>${gamesList[gameId].gameGenders}</p>
+        <div class="game-titles">
+            <h2 id="game-title">${gamesList[gameId].gameTitle}</h2>
+            <h3 id="game-date">${gamesList[gameId].gameYear}</h3>
+            <h3 id="game-dev">${gamesList[gameId].gameProducer}</h3>
+            <h3>Gêneros</h3>
+            <p>${gamesList[gameId].gameGenders}</p>
+        
+            <h3>Plataformas</h3>
+            <p>${gamesList[gameId].gamePlatforms}</p>        
+        </div>
 
-<h3>Plataformas</h3>
-<p>${gamesList[gameId].gamePlatforms}</p>
-
-<p class="game-description">${gamesList[gameId].gameDescriptions}</p>
-</div>
-`;
-
+        <div class="game-detail">
+            <p class="game-description">${gamesList[gameId].gameDescriptions}</p>
+        </div>
+    `;
 }
 
 gameLinks.forEach((gameLink) => {
